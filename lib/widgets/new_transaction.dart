@@ -21,7 +21,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
   final _amountController=TextEditingController();
 
-  DateTime _selectedDate;
+  DateTime? _selectedDate;
 
   _NewTransactionState(){
     print("constructor newtransactionstate");
@@ -119,8 +119,8 @@ class _NewTransactionState extends State<NewTransaction> {
                    height: 70,
                    child: Row(
                      children: [
-                      Expanded(child: Text(_selectedDate==null?'No Date Chosen':'Picked Date: ${DateFormat.yMd().format(_selectedDate)}')),
-                       FlatButton(
+                      Expanded(child: Text(_selectedDate==null?'No Date Chosen':'Picked Date: ${DateFormat.yMd().format(_selectedDate as DateTime)}')),
+                       MaterialButton(
                          onPressed: _presentDatePicker, 
                          child:Text('Choose Date',style: TextStyle(fontWeight: FontWeight.bold,fontFamily:'QuickSand'),),
                          textColor:Theme.of(context).primaryColor,
@@ -128,11 +128,13 @@ class _NewTransactionState extends State<NewTransaction> {
                      ],
                    ),
                  ),
-                 RaisedButton(
+                 ElevatedButton(
                   onPressed:_submitData,
-                  color: Theme.of(context).primaryColor,
+                  style:ElevatedButton.styleFrom( 
+                    foregroundColor: Theme.of(context).primaryColor, 
+                    backgroundColor: Theme.of(context).textTheme.labelLarge?.color),
                   child: Text('Add Transaction'),
-                  textColor: Theme.of(context).textTheme.button.color,
+                 
                   )
               
           ],

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_complete_guide/widgets/chart.dart';
 import 'package:flutter_complete_guide/widgets/new_transaction.dart';
@@ -17,23 +15,27 @@ class MyApp extends StatelessWidget {
       title: 'Expense Planner',
       theme: ThemeData(
           primarySwatch: Colors.purple,
-          accentColor: Colors.amber,
+          hintColor: Colors.amber,
           //errorColor: Colors.red,
           fontFamily: 'QuickSand',
           textTheme: ThemeData.light().textTheme.copyWith(
-                bodyText2: TextStyle(),
-                headline6: TextStyle(
+                bodyMedium: TextStyle(),
+                titleLarge: TextStyle(
                     fontFamily: 'OpenSans',
                     fontWeight: FontWeight.bold,
                     fontSize: 18),
-                button: TextStyle(color: Colors.white),
+                labelLarge: TextStyle(color: Colors.white),
               ),
           appBarTheme: AppBarTheme(
-              textTheme: ThemeData.light().textTheme.copyWith(
-                  headline6: TextStyle(
+              toolbarTextStyle: ThemeData.light().textTheme.copyWith(
+                  titleLarge: TextStyle(
                       fontFamily: 'OpenSans',
                       fontSize: 20,
-                      fontWeight: FontWeight.bold)))),
+                      fontWeight: FontWeight.bold)).bodyMedium, titleTextStyle: ThemeData.light().textTheme.copyWith(
+                  titleLarge: TextStyle(
+                      fontFamily: 'OpenSans',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold)).titleLarge)),
       home: MyHomePage(),
     );
   }
